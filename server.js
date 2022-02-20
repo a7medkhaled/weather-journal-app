@@ -39,7 +39,13 @@ app.get("/projectData", function (req, res) {
 app.post("/addWhether", function (req, res) {
   console.log("req body", req.body);
   // res.send("POST received");
-  projectData[req.body.date] = req.body;
+
+  //   projectData[req.body.date] = req.body;
+
+  projectData["date"] = req.body.date;
+  projectData["temp"] = req.body.temp;
+  projectData["feelingsInput"] = req.body.userFeeling;
+
   console.log("proj data", projectData);
   res.send({ msg: "movie added successfuly" });
 });
