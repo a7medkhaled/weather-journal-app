@@ -29,3 +29,17 @@ const listen = () => {
 };
 
 const server = app.listen(port, listen);
+
+app.get("/projectData", function (req, res) {
+  console.log(req);
+  res.send(JSON.stringify(projectData));
+});
+
+// POST method route
+app.post("/addWhether", function (req, res) {
+  console.log("req body", req.body);
+  // res.send("POST received");
+  projectData[req.body.date] = req.body;
+  console.log("proj data", projectData);
+  res.send({ msg: "movie added successfuly" });
+});
